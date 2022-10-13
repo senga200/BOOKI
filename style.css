@@ -1,0 +1,936 @@
+* {
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+  width: 100%;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/*HEADER///////////////*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 150px;
+    position: relative;
+    margin-left: 50px;
+  }
+ 
+  nav {
+    display: flex;
+  }
+
+  nav a {
+    padding: 50px;
+    justify-content: end;
+  }
+
+  .logo img{
+    width: 70%;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+  
+  .items:hover {
+    color: #0065FC;
+    font-weight: bold;
+    border-top: solid #0065FC;
+  }
+  
+  .intro {
+    margin-top: 70px;
+    padding: 20px 0 20px 0;
+  }  
+
+  .zoneRecherche {
+    position: absolute;
+    top: 20px;
+  }
+
+  .intro h1 {
+    font-size: 28px;
+    margin: 5px;
+  }
+
+  .intro p{
+    margin: 8px;
+  }
+  
+  /*RECHERCHE////////////////////*/
+  
+  .recherche {
+    display: flex;
+    margin-top: 15px;
+    width: 450px;
+  }
+  
+  .location {
+    display: flex;
+    background-color: rgb(233, 233, 233);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* padding: 20px; */
+    border-radius: 15px 0px 0 15px;
+  }
+  
+  .location .fas {
+    margin: auto;
+  }
+  
+  #search {
+    padding: 15px 0 15px 15px;
+    font-size: 20px;
+    font-weight: bold;
+    border-right: none;
+    border-left: none;
+    border-top: #F2F2F2 solid;
+    border-bottom: #F2F2F2 solid;
+    border-width: thin;
+  }
+  
+  .boutonSearch {
+    background-color: #0065FC;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 0 15px 15px 0;
+  }
+  
+  .boutonSearch a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .loupe{
+    display: none;
+  }
+  
+/*FILTRES/////////////*/ 
+
+.filtres {
+    display: flex;
+    margin-top: 100px;
+    margin-left: 30px;
+    padding-top: 70px;
+}
+
+.boutonToggle{
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+  .titreFiltres{
+    margin: 10px 25px 0 0 ;
+  }
+
+
+
+  input[type=checkbox].toggle{
+    display: none;
+  }
+
+  /*CREATION DU BOUTON*/
+  input[type=checkbox].toggle + label{
+    display: inline-block;
+    height: 45px;
+    width: 170px;
+    position: relative;
+    font-size: 18px;
+    border: 1px solid rgba(128, 128, 128, 0.553);
+    padding: 0;
+    margin-right: 40px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+
+  }
+
+  /*TAILLE PLUS GRANDE POUR ANIMAUX*/ 
+  input[type=checkbox].toggle + label.animaux{
+    display: inline-block;
+    height: 45px;
+    width: 250px;
+    position: relative;
+    font-size: 18px;
+    border: 1px solid rgba(128, 128, 128, 0.553);
+    padding: 0;
+    margin-right: 40px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  /*CREATION DU CERCLE ET INSERSION DES ICONES BLEUES DANS LES BOUTONS*/
+  input[type=checkbox].toggle + label.economique:before{
+    position : absolute;
+    height: 43px;
+    width:44px;
+    content : url("images/money-bill-wave-solid-25.svg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+  }
+  
+  input[type=checkbox].toggle + label.familial:before{
+    position : absolute;
+    height: 43px;
+    width:44px;
+    content : url("images/child-reaching-solid-25-blue.svg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+  }
+  
+  input[type=checkbox].toggle + label.romantique:before{
+    position : absolute;
+    height: 43px;
+    width:44px;
+    content : url("images/heart-solid-25-blue.svg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+  }
+  
+  input[type=checkbox].toggle + label.animaux:before{
+    position : absolute;
+    height: 43px;
+    width:44px;
+    content : url("images/dog-solid-25-blue.svg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+  }
+  
+  /*POSITION TEXTE*/
+  input[type=checkbox].toggle + label:after{
+   width: 140px;
+   text-align: center;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+  }
+  
+  input[type=checkbox].toggle + label.animaux:after{
+    width: 200px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+   }
+  
+   /*POSITION OFF TEXTE */
+
+  input[type=checkbox].toggle:not(:checked) + label:after{
+    content:attr(data-unchecked);
+    right: 0;
+    color:rgb(155, 155, 155);
+  }
+     /*POSITION OFF ICONES */
+
+  input[type=checkbox].toggle:not(:checked) + label.economique:before{
+    left: -10px;
+    background-color:rgb(155, 155, 155);
+    content : url("images/money-bill-wave-solid-25-black.svg");
+  }
+  
+  input[type=checkbox].toggle:not(:checked) + label.familial:before{
+    left: -10px;
+    background-color:rgb(155, 155, 155);
+    content : url("images/child-reaching-solid-25.svg");
+  }
+  
+  input[type=checkbox].toggle:not(:checked) + label.romantique:before{
+    left: -10px;
+    background-color:rgb(155, 155, 155);
+    content : url("images/heart-solid-25.svg");
+  }
+  
+  input[type=checkbox].toggle:not(:checked) + label.animaux:before{
+    left: -10px;
+    background-color:rgb(155, 155, 155);
+    content : url("images/dog-solid-25.svg");
+  }
+
+     /*POSITION ON TEXTE ET BORDURE */
+  input[type=checkbox].toggle:checked + label:after{
+    content: attr(data-checked);
+    color:#0065FC;
+    font-weight: bold;
+  }
+  input[type=checkbox].toggle:checked + label{
+    text-align: left;
+    border-color: #0065FC;
+  }
+  
+  /*DEPLACEMENT ICONE POSITION ON*/
+  input[type=checkbox].toggle:checked + label:before{
+    left: 130px;
+    background-color: #DEEBFF;
+  }
+  
+  input[type=checkbox].toggle:checked + label.animaux:before{
+    left: 208px;
+    background-color: #DEEBFF;
+  }
+
+  /*INFO/////////*/
+
+.info {
+    display: flex;
+    padding: 30px;
+  }
+
+  .i {
+    display: flex;
+    color: #0065FC;
+    width: 20px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    border: solid rgb(204, 203, 203);
+    border-width: thin;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+/*HEBERGEMENTS/////////////*/
+  .resultat {
+    display: flex;
+    width: 100%;
+  }
+
+.hebergementMarseille {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap ;
+    margin-top: 10px;
+  }
+
+  .texteHebergements h2{
+    margin-top: 25px;
+
+  }
+  
+  .hebergements {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap ;
+    width: 80%;
+
+    background-color: #F2F2F2;
+    margin: 30px;
+    padding: 12px;
+    border-radius: 20px;
+  }
+  
+  .hebergements h3, .hebergements p {
+    margin: 10px;
+  }
+
+  .hebergements h3:hover{
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+  
+  .stars {
+    margin: 10px;
+    color: #0065FC;
+  }
+  
+  .carte1 {
+    width:30% ;
+    margin: 10px;
+    background-color: #fff;
+    border: solid 5px #fff;
+    border-radius: 20px;
+    font-size: 14px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  
+  .carte1:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+  
+  .hebergements img {
+    box-sizing: content-box;
+    width: 100%;
+    height: 120px;
+    border-radius: 20px 20px 0 0 ;
+    object-fit: cover;
+    text-align: center;
+  }
+  
+  .texteHebergements h2 {
+    padding:15px 0 10px 30px ;
+  }
+  
+  .texteHebergements h3 {
+    padding:15px 0 10px 30px ;
+  }
+  
+  /*  POPULAIRE////////////////////////////*/
+  
+  .populaire {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 450px;
+    background-color: #F2F2F2;
+    margin: 30px;
+    border-radius: 20px;
+    padding-bottom: 10px;
+  }
+  
+  .entetePop {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    padding: 5px 0 10px 0;
+    text-align: start;
+  }
+
+  .populaire img {
+    width: 132px;
+    height: 135px;
+    border-radius: 20px 0 0 20px ;
+    object-fit: cover;
+  }
+
+  .carte2 a{
+    display: flex;
+
+}
+
+  
+  .carte2 {
+    width:350px ;
+    height: 145px;
+    margin: 15px;
+    background-color: #fff;
+    border: solid 5px #fff;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  
+  .carte2:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+  
+  .description {
+    font-size: 14px;
+    margin:15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .stars2 {
+    margin-top: 10px;
+    color: #0065FC;
+  }
+  
+  /*ACTIVITES////////////////////////*/
+  
+  .Activites {
+  margin-top: 30px ;
+  }
+  
+  .Activites h2 {
+    padding: 0 0 20px 30px;
+  }
+  
+  .cartesActivites {
+    display: flex;
+    align-items: flex-start;
+    flex-flow:column wrap ;
+    justify-content: space-between;
+    width: 100%;
+    height: 500px;
+  }
+  
+  .carteVieuxPort {
+  display: flex;
+  flex-direction: column;
+  width:330px ;
+  height: 480px;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  
+  .imageCarteVieuxPort img { 
+    object-fit: cover;
+    width:100%;
+    height: 420px;
+    border-radius: 20px 20px 0 0 ;
+  }
+  
+  .carteVieuxPort h3 {
+    padding: 15px 0 0 15px;
+  }
+  
+  .cartePomegues {
+    display: flex;
+    flex-direction:column;
+    width: 330px;
+    height: 260px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  
+  .imageCartePomegues img { 
+    object-fit: cover;
+    width:100%;
+    height: 200px;
+    border-radius: 20px 20px 0 0 ;
+  }
+  
+  .cartePomegues h3 {
+    padding: 15px 0 0 15px;
+  }
+  
+  .carteFrioul {
+    display: flex;
+    flex-direction:column;
+    width: 330px;
+    height: 200px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  
+  .imageCarteFrioul img { 
+    object-fit: cover;
+    width:100%;
+    height: 140px;
+    border-radius: 20px 20px 0 0 ;
+  }
+  
+  .carteFrioul h3 {
+    padding: 15px 0 0 15px;
+  }
+  
+  .carteCalanques {
+    display: flex;
+    flex-direction: column;
+    width:330px ;
+    height: 480px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    
+    .imageCarteCalanques img { 
+      object-fit: cover;
+      width:100%;
+      height: 420px;
+      border-radius: 20px 20px 0 0 ;
+    }
+    
+    .carteCalanques h3 {
+      padding: 15px 0 0 15px;
+    }
+  
+    .carteND {
+      display: flex;
+      flex-direction:column;
+      width: 330px;
+      height: 260px;
+      margin: 10px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    
+    .imageCarteND img { 
+      object-fit: cover;
+      width:100%;
+      height: 200px;
+      border-radius: 20px 20px 0 0 ;
+    }
+    
+    .carteND h3{
+      padding: 15px 0 0 15px;
+    }
+  
+    .carteND{
+      display: flex;
+      flex-direction:column;
+      width: 330px;
+      height: 230px;
+      margin: 10px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+      
+    .imageCarteND img { 
+      object-fit: cover;
+      width:100%;
+      height: 170px;
+      border-radius: 20px 20px 0 0 ;
+    }
+      
+    .carteLongchamp h3{
+      padding: 15px 0 0 15px;
+    }
+  
+    .carteLongchamp {
+      display: flex;
+      flex-direction:column;
+      width: 330px;
+      height: 230px;
+      margin: 10px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+      
+    .imageCarteLongchamp img { 
+      object-fit: cover;
+      width:100%;
+      height: 170px;
+      border-radius: 20px 20px 0 0 ;
+    }
+      
+    .carteLongchamp h3 {
+      padding: 15px 0 0 15px;
+    }
+  
+    .carteVieuxPort:hover, .cartePomegues:hover, .carteFrioul:hover, .carteCalanques:hover, .carteND:hover, .carteLongchamp:hover{
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+  
+  
+   /*FOOTER/////////////////////////*/
+   
+    footer {
+    width: 100%;
+    padding-top: 30px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    background-color: #F2F2F2;
+    display: flex;
+    justify-content: space-around;
+   }
+  
+    footer h3{
+    padding: 10px;
+   }
+  
+   li{
+    list-style-type : none;
+    padding: 10px;
+   }
+  
+  
+  /*RESPONSIVE>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+
+
+  /* TABLETTES///////////////*/
+
+ @media all and (min-width: 768px) and (max-width: 992px) {
+
+    .boutonToggle{
+        padding: 20px;
+    }
+
+    .titreFiltres{
+        margin: 40px 25px 0 0 ;
+    }
+
+    input[type=checkbox].toggle + label {
+        margin: 10px;
+    }
+
+    .resultat{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+      
+    .populaire{
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap ;
+        background-color: #F2F2F2;
+        margin: 30px;
+        padding: 12px;
+        border-radius: 20px;
+    }
+
+    .hebergements{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-wrap: wrap ;
+       width: auto;
+       background-color:transparent;
+       margin: 30px;
+       padding: 12px;
+       border-radius: 20px;
+    }
+    
+    .carte1{
+      width:350px ;
+      height: 200px;
+      margin: 10px;
+      font-size: 12px;
+      background-color: #fff;
+      border: solid 5px #fff;
+      border-radius: 20px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      display: flex;
+    }
+
+    .carte1 img{
+      width: 340px;
+      height: 100px;
+      object-fit: cover;
+    }
+
+
+    .cartesActivites{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: auto;
+    }
+
+}
+    
+
+  /* SMARTPHONES*/  
+
+  @media screen and (max-width :768px) {
+    
+
+    body{
+        margin: 0;
+    }
+    
+    header {
+        flex-direction: column;
+        position: relative;
+        margin: 0;
+    }
+     
+   .logo {
+        position: absolute;
+        align-self: center;
+        text-align: center;
+    }
+
+    .logo img{
+      width: 60%;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-top:40px; 
+        z-index: 1;
+    }
+    
+    .items{
+        border-bottom: solid #F2F2F2;
+        width: 100%;
+        bottom: 0;
+        padding-bottom:10px;
+    }
+
+    .items:hover{
+      border-top: none;
+      border-top-style: none ;
+      border-bottom: solid #0065FC;
+  }
+
+    .intro{
+        padding: 70px 10px 20px 10px ;
+    }
+    
+    .intro h1{
+        font-size: 25px;
+    }
+
+
+    .recherche{
+        justify-content: center;
+        margin: auto;
+        width: 50%;
+    }
+
+    .location {
+      padding: 20px; 
+    }
+    
+    .mot {
+        display: none;
+    }
+
+    .loupe {
+        display: contents;
+    }
+
+    .filtres{
+        margin-left: 20px;
+        display: flex;
+        flex-wrap:wrap ;
+        padding-top: 100px;
+    }
+
+    input[type=checkbox].toggle + label {
+        margin: 10px;
+    }
+
+    .info{
+        margin-left: 20px;
+    }
+
+    .resultat{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .entetePop{
+        justify-content: space-between;
+        margin-left: 10px;
+    }
+  
+    .populaire{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap ;
+        width: 100%;
+        background-color: #F2F2F2;
+        margin-left:0 ;
+        margin-right: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-radius: 0;
+    }
+
+    .hebergements{
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap ;
+        width: auto;
+        background-color:transparent;
+        margin: 30px;
+        padding: 12px;
+        border-radius: 20px;
+    }
+
+    .carte1{
+        display: flex;
+        width:350px ;
+        height: 200px;
+        margin: 10px;
+        font-size: 12px;
+        background-color: #fff;
+        border: solid 5px #fff;
+        border-radius: 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    .carte1 img{
+        width: 340px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+
+    .cartesActivites{ 
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        height: auto;    
+    }
+
+  
+    .carteVieuxPort, .cartePomegues, .carteFrioul, .carteCalanques, .carteND, .carteLongchamp{
+      display: flex;
+      flex-direction: column;
+      width:350px ;
+      height: 200px;
+      margin: 10px;
+      font-size: 12px;
+      background-color: #fff;
+      border: solid 5px #fff;
+      border-radius: 20px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    .Activites img{
+      width: 340px;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .titreActivites{
+        margin-left: 50px;
+    }
+
+    footer{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .Apropos, .footerHebergements, .Assistance {
+      padding: 10px;
+    }
+
+    .info{
+      position: relative;
+    }
+
+    .i{
+      position: absolute;
+      left: 0;
+    }
+
+
+}
